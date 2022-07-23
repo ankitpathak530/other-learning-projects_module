@@ -1,0 +1,75 @@
+<div class="bootstrap-wrapper">
+    <div class="container text-center mt">
+
+        <h1 class="text-center">Welcome to our App</h1>
+
+
+
+        <br><br><br>
+        <p></p>
+
+
+
+        {{ 'Ankit in upper case' | uppercase}} <br>
+        {{ 'Ankkt in lower case' | lowercase}} <br><br>
+
+
+
+        <h1>Original number value: {{e}}</h1>
+
+        <!-- pi: number = 3.14;
+             e: number = 2.718281828459045; -->
+
+        <!--output '2.718'-->
+        <p>e (no formatting): {{e | number}}</p>
+
+        <!--output '002.71828'-->
+        <p>e (3.1-5): {{e | number:'3.1-5'}}</p>
+
+        <!--output '0,002.71828'-->
+        <p>e (4.5-5): {{e | number:'4.5-5'}}</p>
+
+        <h1>Original pi value: {{pi}}</h1>
+
+        <!--output '3.14'-->
+        <p>pi (no formatting): {{pi | number}}</p>
+
+        <!--output '003.14'-->
+        <p>pi (3.1-5): {{pi | number:'3.1-5'}}</p>
+
+        <!--output '003.14000'-->
+        <p>pi (3.5-5): {{pi | number:'3.5-5'}}</p>
+
+        <!--output '-3' / unlike '-2' by Math.round()-->
+        <p>-2.5 (1.0-0): {{-2.5 | number:'1.0-0'}}</p>
+
+
+
+
+    </div>
+</div>
+
+<div class="bootstrap-wrapper">
+    <div class="container">
+        <div class="row ">
+            <div class="col" style="align-items: center;">
+                <!-- Custom pipe use -->
+                <h1>My Custom Pipe</h1>
+                <p>
+
+                    <input type="text" placeholder="Enter vegetable to serach" [(ngModel)]="veg" />
+                    <!-- (keyup)="onKeypressEvent($event)" /> -->
+
+                    <mat-selection-list #vegetable [multiple]="false" style="align-items: center;"
+                        *ngIf="showList == true">
+                        <mat-list-option *ngFor=" let item of tempVeg | myStrPipe: veg"
+                            style="width: 340px;text-align:left;">
+                            {{item}}
+                        </mat-list-option>
+                    </mat-selection-list>
+
+                </p>
+            </div>
+        </div>
+    </div>
+</div>

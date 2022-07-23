@@ -1,0 +1,54 @@
+<div class="bootstrap-wrapper">
+  <div class="container">
+     <div class="row mt">
+     
+         <div class="container text-center">
+             <img class="img-fluid" style="width:100px;" src="/assets/padlock.png" alt="login image"/>
+         </div>
+         
+
+         <div class="col-md-6 offset-md-3">
+              <h1 class="text-center">Login here</h1>
+        
+               <form (ngSubmit)="onSubmit()">
+
+                  <mat-form-field class="full-width" >
+					  <mat-label>Username</mat-label>
+					  <input 
+                        [(ngModel)] ="credentials.username"
+                        name = "username"
+					    required type="text"
+					    matInput
+					    />
+				   </mat-form-field>   
+				     
+				  <mat-form-field class="full-width" >
+					  <mat-label>Password</mat-label>
+					  <input 
+	                      [(ngModel)] ="credentials.password"
+						  required
+						  name = "username"
+						  type="password" 
+						  matInput
+					  />
+				   </mat-form-field>   
+				         
+				    <div class="container text-center">
+				    
+				         <button type="submit" mat-raised-button color="primary">Login</button>
+				         <button type="reset" mat-raised-button color="accent" style="margin-left:10px;">Reset</button>
+				    
+				    </div> 
+				      
+				         
+               </form>
+              <br>
+             <p class="mt">  {{credentials | json}} </p>
+         </div>  
+         
+          
+         
+         
+     </div>
+  </div>
+</div>
